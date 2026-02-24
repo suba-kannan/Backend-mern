@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Notes</title>
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        margin: 0;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .container{
+        max-width: 900px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1{
+        text-align: center;
+        color: #2c3e50;
+      }
+      h2{
+        color: #34495e;
+        margin-top: 25px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+      }
+      ul{
+        margin-left: 20px;
+      }
+      code{
+        background: #eef1f5;
+        padding: 3px 6px;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      .example{
+        background: #f9fafc;
+        padding: 10px;
+        border-left: 4px solid #3498db;
+        margin: 10px 0;
+      }
+      .example{
+        background: #f9fafc;
+        padding: 15px;
+        border-left: 5px solid #3498db;
+        margin: 15px 0;
+        font-style: italic;
+      }
+      table{
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+      }
+      th,
+      td{
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      th{
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>JavaScript Notes</h1>
+
+      <h2>1. What is JavaScript?</h2>
+      <ul>
+        <li>JavaScript is a high-level interpreted programming language.</li>
+        <li>Used to create static and dynamic web applications.</li>
+        <li>Works with HTML and CSS to build interactive websites.</li>
+        <li>Can run outside the browser using Node.js.</li>
+        <li>Can be combined with frameworks like React and libraries.</li>
+      </ul>
+
+      <h2>2. Variables</h2>
+      <ul>
+        <li>A variable is a container that stores a value.</li>
+        <li>Declaration: <code>let bookName;</code></li>
+        <li>Initialization: <code>bookName = "Harry Potter";</code></li>
+        <li>Both: <code>let bookName = "Harry Potter";</code></li>
+      </ul>
+
+      <h2>3. Rules to Name Variables</h2>
+      <ul>
+        <li>Should be unique.</li>
+        <li>Can use letters, numbers, _ and $.</li>
+        <li>Should not start with numbers.</li>
+        <li>Case sensitive.</li>
+        <li>Keywords not allowed.</li>
+      </ul>
+
+      <h2>4. Data Types</h2>
+      <p><strong>Primitive (Immutable):</strong></p>
+      <ul>
+        <li>String</li>
+        <li>Number</li>
+        <li>Boolean</li>
+        <li>BigInt</li>
+        <li>null</li>
+        <li>undefined</li>
+        <li>NaN</li>
+        <li>Symbol</li>
+      </ul>
+
+      <p><strong>Non-Primitive (Mutable):</strong></p>
+      <ul>
+        <li>Array</li>
+        <li>Object</li>
+        <li>Function</li>
+      </ul>
+
+      <h2>5. var, let, const</h2>
+
+      <h3>var</h3>
+      <ul>
+        <li>Function scoped</li>
+        <li>Can reassign</li>
+        <li>Can redeclare</li>
+        <li>Hoisted and initialized as undefined</li>
+      </ul>
+
+      <h3>let</h3>
+      <ul>
+        <li>Block scoped</li>
+        <li>Can reassign</li>
+        <li>Cannot redeclare</li>
+        <li>Hoisted but not initialized (TDZ)</li>
+      </ul>
+
+      <h3>const</h3>
+      <ul>
+        <li>Block scoped</li>
+        <li>Cannot reassign</li>
+        <li>Cannot redeclare</li>
+        <li>Objects/arrays values can be modified</li>
+      </ul>
+
+      <h2>6. Truthy and Falsy Values</h2>
+
+      <p><strong>Truthy:</strong></p>
+      <ul>
+        <li>All numbers except 0</li>
+        <li>All non-empty strings</li>
+        <li>Arrays</li>
+        <li>Objects</li>
+        <li>Functions</li>
+        <li>true</li>
+      </ul>
+
+      <p><strong>Falsy:</strong></p>
+      <ul>
+        <li>false</li>
+        <li>0</li>
+        <li>"" (empty string)</li>
+        <li>null</li>
+        <li>undefined</li>
+        <li>NaN</li>
+        <li>0n</li>
+        <li>-0</li>
+      </ul>
+
+      <h2>7. Type Coercion</h2>
+
+      <p><strong>Implicit:</strong> Automatically done by JavaScript.</p>
+      <div class="example">
+        "5" + 2 → "52"<br />
+        "5" - 2 → 3<br />
+        10 == "10" → true<br />
+        10 === "10" → false
+      </div>
+
+      <p><strong>Explicit:</strong> Manually done by programmer.</p>
+      <div class="example">
+        Number("100") → 100<br />
+        String(50) → "50"<br />
+        Boolean(1) → true
+      </div>
+
+      <h2>8. Temporal Dead Zone (TDZ)</h2>
+      <ul>
+        <li>Only for let and const.</li>
+        <li>Time between declaration and initialization.</li>
+        <li>Accessing variable before initialization gives ReferenceError.</li>
+      </ul>
+
+      <h2>9. Scope</h2>
+
+      <p>
+        <strong>Global Scope:</strong> Declared outside functions and blocks.
+      </p>
+      <p><strong>Function Scope:</strong> Declared inside a function.</p>
+      <p><strong>Block Scope:</strong> Declared inside {} (if, for, while).</p>
+
+      <h2>10. Hoisting</h2>
+      <ul>
+        <li>JavaScript moves declarations to the top of their scope.</li>
+        <li>var is hoisted and initialized as undefined.</li>
+        <li>let and const are hoisted but not initialized (TDZ).</li>
+        <li>Function declarations are completely hoisted.</li>
+      </ul>
+
+      <h2>11. Expressions vs. Statements</h2>
+
+      <h3>Expressions</h3>
+      <p>
+        An <strong>expression</strong> is something that produces a value or
+        returns something. If JS can calculate it and return a result, it is an
+        expression.
+      </p>
+      <ul>
+        <li><code>5 + 3</code> // 8</li>
+        <li><code>"Hello" + "25"</code> // "Hello 25"</li>
+        <li><code>x * 2</code> // produces a value</li>
+        <li>
+          <strong>Assignment Expression:</strong> <code>a = 5</code> (This works
+          inside <code>console.log</code> because it returns the value
+          assigned).
+        </li>
+      </ul>
+
+      <h3>Statements</h3>
+      <p>
+        A <strong>statement</strong> performs an action. It does something, but
+        it may not return a value. Statements cannot be used where a value is
+        required (e.g., inside <code>console.log()</code>).
+      </p>
+      <div class="example">
+        <code>let x = 10;</code> // Statement: Declares a variable.<br />
+        <code>if (x > 5) { ... }</code> // Statement: Controls flow.
+      </div>
+      <ul>
+        <li>
+          <h3>Conditional Statements (Decision Making)</h3>
+          <ul>
+            <li>
+              <code>if</code>, <code>if...else</code>,
+              <code>if...else if...else</code>
+            </li>
+            <li><code>switch</code></li>
+            <li>Ternary Operator (not a control statement)</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Looping Statements</h3>
+          <p>Used when we need to repeat a task. Common loops include:</p>
+          <ul>
+            <li>
+              <code>for</code> loop:
+              <code>for(let i=0; i < 5; i++) { ... }</code>
+            </li>
+            <li><code>while</code>, <code>do...while</code></li>
+            <li><code>for...of</code>, <code>for...in</code></li>
+          </ul>
+        </li>
+        <li>
+          <h3>Jump Statements</h3>
+          <ul>
+            <li><code>break</code>: Stops the loop entirely.</li>
+            <li>
+              <code>continue</code>: Skips the current iteration and moves to
+              the next.
+            </li>
+            <li>
+              <code>return</code>: Exits from a function and optionally returns
+              a value.
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Control Statements</h3>
+      <p>
+        Control statements change the normal "top-to-bottom" flow of execution.
+        They decide which code runs, how many times, and when to stop.
+      </p>
+
+      <h2>12. Operators</h2>
+      <p>
+        Operators are special symbols used to perform operations on values and
+        variables (Arithmetic, Assignment, Comparison, and Logical).
+      </p>
+
+      <h3>Arithmetic Operators: Used for arithmetic operations</h3>
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><code>+</code></td>
+          <td>Addition</td>
+        </tr>
+        <tr>
+          <td><code>-</code></td>
+          <td>Subtraction</td>
+        </tr>
+        <tr>
+          <td><code>*</code></td>
+          <td>Multiplication</td>
+        </tr>
+        <tr>
+          <td><code>/</code></td>
+          <td>Division</td>
+        </tr>
+        <tr>
+          <td><code>%</code></td>
+          <td>Modulus (Remainder)</td>
+        </tr>
+        <tr>
+          <td><code>**</code></td>
+          <td>Exponent</td>
+        </tr>
+        <tr>
+          <td><code>++</code></td>
+          <td>Increment</td>
+        </tr>
+        <tr>
+          <td><code>--</code></td>
+          <td>Decrement</td>
+        </tr>
+      </table>
+
+      <h3>Assignment Operators: Used to compare values</h3>
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><code>=</code></td>
+          <td>a = 5</td>
+        </tr>
+        <tr>
+          <td><code>+=</code></td>
+          <td>a += 5</td>
+        </tr>
+        <tr>
+          <td><code>-=</code></td>
+          <td>a -= 5</td>
+        </tr>
+        <tr>
+          <td><code>*=</code></td>
+          <td>a *= 5</td>
+        </tr>
+        <tr>
+          <td><code>/=</code></td>
+          <td>a /= 5</td>
+        </tr>
+      </table>
+
+      <h3>Comparison Operators: Used to compare values</h3>
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><code>==</code></td>
+          <td>Equal to</td>
+        </tr>
+        <tr>
+          <td><code>===</code></td>
+          <td>Strict Equal (checks value + type)</td>
+        </tr>
+        <tr>
+          <td><code>!=</code></td>
+          <td>Not Equal</td>
+        </tr>
+        <tr>
+          <td><code>!==</code></td>
+          <td>Strict Not Equal</td>
+        </tr>
+        <tr>
+          <td><code>></code> / <code><</code></td>
+          <td>Greater than / Less than</td>
+        </tr>
+        <tr>
+          <td><code>>=</code> / <code><=</code></td>
+          <td>Greater or equal / Less or equal</td>
+        </tr>
+      </table>
+
+      <h3>Logical Operator: Used for condition</h3>
+      <table>
+        <tr>
+          <th>Operator</th>
+          <th>Meaning</th>
+        </tr>
+        <tr>
+          <td><code>&&</code></td>
+          <td>AND</td>
+        </tr>
+        <tr>
+          <td><code>||</code></td>
+          <td>OR</td>
+        </tr>
+        <tr>
+          <td><code>!</code></td>
+          <td>NOT</td>
+        </tr>
+      </table>
+
+      <h3>Ternary Operator (Short if-else):</h3>
+      <code>condition ? trueValue : falseValue</code>
+
+      <h3>Type Operator:</h3>
+      <code>typeof</code> (e.g.,<code>typeof 10</code> returns "number")
+    </div>
+  </body>
+</html>
