@@ -1,0 +1,49 @@
+//callback
+
+// const getDataCallback = (successCallback,errorCallback)=>{
+
+// fetch("https://dummyjson.com/products")
+// .then((res)=>res.json())
+// .then((data)=>successCallback(data.products))
+// .catch((error)=>errorCallback(error))
+
+// }
+
+// getDataCallback((data)=>console.log('data',data)
+// ,(error)=>console.log('error',error)
+// )
+
+
+
+//promise
+
+// const getPromise = ()=>{
+
+//   return fetch("https://dummyjson.com/products")
+//   .then((res)=>res.json())
+
+// }
+
+// getPromise()
+// .then((data)=>console.log(data.products))
+// .catch((error)=>console.log(error))
+
+
+
+
+//async, await
+
+const getData = async () => {
+  try {
+    const datastake = await fetch("https://dummyjson.com/products");
+    const res = await datastake.json();
+
+    console.log(res.products);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+getData();
+
+
